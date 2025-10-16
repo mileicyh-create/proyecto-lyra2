@@ -3,52 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Lyra</title>
+    <title>Proyecto Lyra - Historia Interactiva</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Pantalla de introducción -->
-    <div id="intro-container">
-        <video id="intro-video" autoplay muted playsinline>
-            <source src="introducion.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-        <div class="intro-overlay">
-            <button id="enter-btn">Quiero entrar</button>
+    <div class="book">
+        <div class="page" id="page1">
+            <img id="scene-image" src="ilustraciones-ecos/ciudad.png" alt="Ciudad futurista">
+            <div class="text-box">
+                <h2>Inicio</h2>
+                <p>En un futuro no muy distante, la humanidad vive bajo el control de los Dispositivos, máquinas invisibles y omnipresentes que dictan la rutina, los pensamientos y hasta las emociones de cada individuo...</p>
+                <button onclick="nextPage('page2')">Seguir caminando ➜</button>
+            </div>
         </div>
-    </div>
 
-    <!-- Contenido principal (tu historia interactiva) -->
-    <div id="main-content" style="display: none;">
-        <header>
-            <h1>Lyra: El despertar</h1>
-        </header>
+        <div class="page" id="page2" style="display:none;">
+            <img id="scene-image" src="ilustraciones-ecos/cueva.png" alt="Cueva oculta">
+            <div class="text-box">
+                <h2>Lyra encuentra un refugio</h2>
+                <p>Durante sus caminatas solitarias, Lyra busca espacios donde la señal de los Dispositivos no llega...</p>
+                <button onclick="choosePath('cueva')">Entrar en la cueva 🌌</button>
+                <button onclick="choosePath('bosque')">Seguir por el bosque 🌿</button>
+            </div>
+        </div>
 
-        <main>
-            <section id="inicio" class="scene active">
-                <img src="ilustraciones-ecos/cueva.png" alt="Cueva" class="scene-image">
-                <div class="scene-text">
-                    <p>En un futuro no muy distante, la humanidad vive bajo el control de los Dispositivos...</p>
-                    <button class="next-btn" data-next="escena2">Continuar</button>
-                </div>
-            </section>
+        <div class="page" id="page3" style="display:none;">
+            <img id="scene-image" src="ilustraciones-ecos/bosque.png" alt="Bosque misterioso">
+            <div class="text-box">
+                <h2>Camino del bosque</h2>
+                <p>El bosque susurra secretos antiguos y Lyra siente que algo la observa entre los árboles...</p>
+                <button onclick="restart()">Volver al inicio 🔁</button>
+            </div>
+        </div>
 
-            <section id="escena2" class="scene">
-                <img src="ilustraciones-ecos/ciudad.png" alt="Ciudad" class="scene-image">
-                <div class="scene-text">
-                    <p>Lyra abre los ojos por primera vez sin la voz del Dispositivo dictando sus pensamientos...</p>
-                    <button class="next-btn" data-next="escena3">Continuar</button>
-                </div>
-            </section>
-
-            <section id="escena3" class="scene">
-                <img src="ilustraciones-ecos/bosque.png" alt="Bosque" class="scene-image">
-                <div class="scene-text">
-                    <p>El viento sopla entre los árboles y Lyra siente por primera vez lo que significa ser libre...</p>
-                    <button class="next-btn" data-next="inicio">Volver al inicio</button>
-                </div>
-            </section>
-        </main>
+        <div class="page" id="page4" style="display:none;">
+            <img id="scene-image" src="ilustraciones-ecos/cueva.png" alt="Dentro de la cueva">
+            <div class="text-box">
+                <h2>Camino de la cueva</h2>
+                <p>Dentro de la cueva, la señal desaparece por completo. Solo se escucha su respiración... y un latido desconocido.</p>
+                <button onclick="restart()">Volver al inicio 🔁</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
