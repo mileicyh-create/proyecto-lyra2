@@ -1,28 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const intro = document.getElementById("intro-container");
-    const video = document.getElementById("intro-video");
-    const enterBtn = document.getElementById("enter-btn");
-    const mainContent = document.getElementById("main-content");
-    const nextBtns = document.querySelectorAll(".next-btn");
+function nextPage(id) {
+    document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+}
 
-    // Mostrar el contenido principal al terminar el video o al hacer clic en el botón
-    video.addEventListener("ended", () => {
-        intro.style.display = "none";
-        mainContent.style.display = "block";
-    });
+function choosePath(path) {
+    document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+    if (path === 'cueva') {
+        document.getElementById('page4').style.display = 'block';
+    } else {
+        document.getElementById('page3').style.display = 'block';
+    }
+}
 
-    enterBtn.addEventListener("click", () => {
-        intro.style.display = "none";
-        mainContent.style.display = "block";
-    });
-
-    // Navegación entre escenas
-    nextBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const nextId = btn.getAttribute("data-next");
-            document.querySelectorAll(".scene").forEach(scene => scene.classList.remove("active"));
-            document.getElementById(nextId).classList.add("active");
-        });
-    });
-});
-
+function restart() {
+    document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+    document.getElementById('page1').style.display = 'block';
+}
