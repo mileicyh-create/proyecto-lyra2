@@ -1,113 +1,102 @@
-/* --- Estilos generales --- */
 body {
   margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-color: #0f0f0f;
+  color: #fff;
   overflow: hidden;
-  font-family: 'Quicksand', sans-serif;
-  background-color: #0b0b0e;
 }
 
-/* --- Intro con video --- */
-.intro-screen {
+/* Intro */
+#intro-container {
   position: fixed;
-  inset: 0;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  flex-direction: column;
+  z-index: 10;
 }
 
-#intro-video {
+#intro-container video {
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
+  filter: brightness(0.5);
 }
 
-.overlay {
+.intro-overlay {
   position: relative;
-  z-index: 2;
+  z-index: 20;
   text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 30px;
-  border-radius: 20px;
-  backdrop-filter: blur(6px);
+  color: #fff;
+  padding: 20px;
 }
 
 #enter-btn {
   margin-top: 20px;
-  padding: 10px 30px;
-  font-size: 1.2rem;
+  padding: 12px 28px;
   border: none;
-  border-radius: 25px;
-  background-color: #8a6dd8;
+  background: #8c63ff;
   color: white;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-#enter-btn:hover {
-  background-color: #b497ff;
-  transform: scale(1.05);
-}
-
-/* --- Contenido principal oculto al inicio --- */
-.hidden {
-  display: none;
-}
-
-.story-container {
-  height: 100vh;
-  width: 100vw;
-  text-align: center;
-  color: #fff;
-  background-color: #0d0d12;
-  position: relative;
-}
-
-#scene-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.text-box {
-  position: absolute;
-  bottom: 120px;
-  width: 100%;
-  text-align: center;
-  font-size: 1.2rem;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 15px;
-  max-width: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-#next-btn {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #8a6dd8;
-  border: none;
-  color: #fff;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border-radius: 20px;
+  font-size: 18px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-#next-btn:hover {
-  background-color: #b497ff;
-  transform: translateX(-50%) scale(1.05);
+#enter-btn:hover {
+  background: #a57aff;
+  transform: scale(1.05);
+}
+
+/* Historia */
+#story-container.hidden {
+  display: none;
+}
+
+#story-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+#scene-image {
+  width: 70%;
+  max-width: 800px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.choices {
+  margin-top: 20px;
+}
+
+.choice {
+  margin: 10px;
+  padding: 12px 24px;
+  background: #cba4ff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+  transition: 0.3s;
+}
+
+.choice:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
