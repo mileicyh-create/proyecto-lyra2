@@ -1,18 +1,14 @@
-function nextPage(id) {
-    document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const intro = document.getElementById("intro");
+  const mainContent = document.getElementById("main-content");
+  const enterBtn = document.getElementById("enter-btn");
 
-function choosePath(path) {
-    document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
-    if (path === 'cueva') {
-        document.getElementById('page4').style.display = 'block';
-    } else {
-        document.getElementById('page3').style.display = 'block';
-    }
-}
-
-function restart() {
-    document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
-    document.getElementById('page1').style.display = 'block';
-}
+  // Al hacer clic en "Quiero entrar"
+  enterBtn.addEventListener("click", () => {
+    intro.classList.add("fade-out");
+    setTimeout(() => {
+      intro.style.display = "none";
+      mainContent.classList.remove("hidden");
+    }, 1500); // tiempo del fade
+  });
+});
