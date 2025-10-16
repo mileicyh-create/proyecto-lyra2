@@ -8,28 +8,31 @@
 </head>
 <body>
 
-  <!-- 🌌 INTRODUCCIÓN CON VIDEO -->
-  <div id="intro" class="intro-screen">
-    <video autoplay muted playsinline id="intro-video">
-      <source src="videos/intro.mp4" type="video/mp4" />
-      Tu navegador no soporta video HTML5.
+  <!-- SECCIÓN INTRODUCCIÓN -->
+  <div id="intro-container" class="active">
+    <video id="intro-video" autoplay muted playsinline>
+      <source src="videos/intro.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
     </video>
-    <div class="overlay">
-      <h1>“Soy Lyra... Bienvenido a mi mundo de ecos.”</h1>
+    <div class="intro-overlay">
+      <h1>✨ Bienvenida al mundo de Lyra ✨</h1>
+      <p>Prepárate para descubrir una historia donde la libertad y la conciencia luchan por sobrevivir.</p>
       <button id="enter-btn">Quiero entrar</button>
     </div>
   </div>
 
-  <!-- 📖 CONTENIDO PRINCIPAL DE LA HISTORIA -->
-  <div id="main-content" class="hidden">
-    <div class="story-container">
-      <img id="scene-image" src="ilustraciones-ecos/cueva.png" alt="Cueva" />
-      <div class="text-box">
-        <p>
-          En un futuro no muy distante, la humanidad vive bajo el control de los Dispositivos, máquinas invisibles...
-        </p>
-      </div>
-      <button id="next-btn">Seguir caminando</button>
+  <!-- SECCIÓN HISTORIA -->
+  <div id="story-container" class="hidden">
+    <div id="story-text">
+      <p>
+        En un futuro no muy distante, la humanidad vive bajo el control de los Dispositivos, máquinas invisibles
+        y omnipresentes que dictan la rutina, los pensamientos y hasta las emociones de cada individuo...
+      </p>
+    </div>
+    <img id="scene-image" src="ilustraciones-ecos/cueva.png" alt="Escena inicial" />
+    <div class="choices">
+      <button class="choice">Seguir caminando</button>
+      <button class="choice">Entrar a la cueva</button>
     </div>
   </div>
 
