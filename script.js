@@ -1,17 +1,28 @@
-<script>
-  const intro = document.getElementById("intro");
-  const mainContent = document.getElementById("mainContent");
-  const enterButton = document.getElementById("enterButton");
-  const introVideo = document.getElementById("introVideo");
+document.addEventListener("DOMContentLoaded", () => {
+    const intro = document.getElementById("intro-container");
+    const video = document.getElementById("intro-video");
+    const enterBtn = document.getElementById("enter-btn");
+    const mainContent = document.getElementById("main-content");
+    const nextBtns = document.querySelectorAll(".next-btn");
 
-  // Cuando termina el video, mostrar el botón
-  introVideo.onended = () => {
-    enterButton.style.display = "block";
-  };
+    // Mostrar el contenido principal al terminar el video o al hacer clic en el botón
+    video.addEventListener("ended", () => {
+        intro.style.display = "none";
+        mainContent.style.display = "block";
+    });
 
-  // Al hacer clic en el botón, ocultar intro y mostrar la página
-  enterButton.addEventListener("click", () => {
-    intro.style.display = "none";
-    mainContent.style.display = "block";
-  });
-</script>
+    enterBtn.addEventListener("click", () => {
+        intro.style.display = "none";
+        mainContent.style.display = "block";
+    });
+
+    // Navegación entre escenas
+    nextBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const nextId = btn.getAttribute("data-next");
+            document.querySelectorAll(".scene").forEach(scene => scene.classList.remove("active"));
+            document.getElementById(nextId).classList.add("active");
+        });
+    });
+});
+
