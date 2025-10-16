@@ -1,14 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const intro = document.getElementById("intro");
-  const mainContent = document.getElementById("main-content");
   const enterBtn = document.getElementById("enter-btn");
+  const introContainer = document.getElementById("intro-container");
+  const storyContainer = document.getElementById("story-container");
+  const introVideo = document.getElementById("intro-video");
 
-  // Al hacer clic en "Quiero entrar"
   enterBtn.addEventListener("click", () => {
-    intro.classList.add("fade-out");
-    setTimeout(() => {
-      intro.style.display = "none";
-      mainContent.classList.remove("hidden");
-    }, 1500); // tiempo del fade
+    introContainer.style.display = "none";
+    storyContainer.classList.remove("hidden");
+  });
+
+  // En caso de que el video termine, también puede pasar automáticamente a la historia
+  introVideo.addEventListener("ended", () => {
+    introContainer.style.display = "none";
+    storyContainer.classList.remove("hidden");
   });
 });
