@@ -1,17 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const enterBtn = document.getElementById("enter-btn");
-  const introContainer = document.getElementById("intro-container");
-  const storyContainer = document.getElementById("story-container");
-  const introVideo = document.getElementById("intro-video");
+<script>
+  const intro = document.getElementById("intro");
+  const mainContent = document.getElementById("mainContent");
+  const enterButton = document.getElementById("enterButton");
+  const introVideo = document.getElementById("introVideo");
 
-  enterBtn.addEventListener("click", () => {
-    introContainer.style.display = "none";
-    storyContainer.classList.remove("hidden");
-  });
+  // Cuando termina el video, mostrar el botón
+  introVideo.onended = () => {
+    enterButton.style.display = "block";
+  };
 
-  // En caso de que el video termine, también puede pasar automáticamente a la historia
-  introVideo.addEventListener("ended", () => {
-    introContainer.style.display = "none";
-    storyContainer.classList.remove("hidden");
+  // Al hacer clic en el botón, ocultar intro y mostrar la página
+  enterButton.addEventListener("click", () => {
+    intro.style.display = "none";
+    mainContent.style.display = "block";
   });
-});
+</script>
