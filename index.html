@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyecto Lyra</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyra - Historia Interactiva</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- SECCIÓN INTRODUCCIÓN -->
-  <div id="intro-container" class="active">
-    <video id="intro-video" autoplay muted playsinline>
-      <source src="videos/intro.mp4" type="video/mp4">
-      Tu navegador no soporta el video.
+  <!-- Pantalla de introducción -->
+  <div id="intro" class="intro-container">
+    <video id="introVideo" autoplay muted playsinline>
+      <source src="introduccion.mp4" type="video/mp4">
+      Tu navegador no soporta video.
     </video>
-    <div class="intro-overlay">
-      <h1>✨ Bienvenida al mundo de Lyra ✨</h1>
-      <p>Prepárate para descubrir una historia donde la libertad y la conciencia luchan por sobrevivir.</p>
-      <button id="enter-btn">Quiero entrar</button>
-    </div>
+    <button id="enterButton">Quiero entrar</button>
   </div>
 
-  <!-- SECCIÓN HISTORIA -->
-  <div id="story-container" class="hidden">
-    <div id="story-text">
-      <p>
-        En un futuro no muy distante, la humanidad vive bajo el control de los Dispositivos, máquinas invisibles
-        y omnipresentes que dictan la rutina, los pensamientos y hasta las emociones de cada individuo...
-      </p>
-    </div>
-    <img id="scene-image" src="ilustraciones-ecos/cueva.png" alt="Escena inicial" />
-    <div class="choices">
-      <button class="choice">Seguir caminando</button>
-      <button class="choice">Entrar a la cueva</button>
-    </div>
+  <!-- Contenido principal (tu página anterior) -->
+  <div id="mainContent" style="display: none;">
+    <header>
+      <h1>Bienvenido a Lyra</h1>
+      <p>En un futuro no muy distante...</p>
+    </header>
+
+    <main>
+      <section class="historia">
+        <h2>Capítulo 1: El despertar</h2>
+        <p>La humanidad vive bajo el control de los Dispositivos, máquinas invisibles que dictan la rutina, los pensamientos y hasta las emociones...</p>
+      </section>
+
+      <button class="btn-avanzar">Continuar</button>
+    </main>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const intro = document.getElementById("intro");
+    const mainContent = document.getElementById("mainContent");
+    const enterButton = document.getElementById("enterButton");
+    const introVideo = document.getElementById("introVideo");
+
+    // Cuando termina el video, mostrar el botón
+    introVideo.onended = () => {
+      enterButton.style.display = "block";
+    };
+
+    // Al hacer clic en el botón, ocultar intro y mostrar la página
+    enterButton.addEventListener("click", () => {
+      intro.style.display = "none";
+      mainContent.style.display = "block";
+    });
+  </script>
+
 </body>
 </html>
